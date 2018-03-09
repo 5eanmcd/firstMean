@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title><h4>Profile</h4></mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Name: {{profile?.name}}</mat-list-item>
+      <mat-list-item role="listitem">Description: {{profile?.description}}</mat-list-item>
+      <mat-list-item role="listitem">Email: {{profile?.email}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-title><h4>Posts</h4></mat-card-title>
+    <mat-card-content>
+        <messages></messages>
+    </mat-card-content>
+  </mat-card>
