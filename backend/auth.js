@@ -46,7 +46,8 @@ router.post('/login', async(req,res) => {
             else{
                 console.log('user ' + user)
 
-                var payload = {}
+                var payload = {subject: user._id }
+
                 var token = jwt.encode(payload, '123' )
 
                 console.log('token ' + token)
