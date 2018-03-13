@@ -1,14 +1,24 @@
 <mat-card>
-    <mat-card-title><h4>Login</h4></mat-card-title>
+    <mat-card-title>
+      <h4>Login
+        <mat-icon *ngIf=!authService.isAuthenticated>lock_open</mat-icon>
+        <mat-icon *ngIf=authService.isAuthenticated>lock_outline</mat-icon>
+      </h4>
+    </mat-card-title>
     <mat-card-content>
-      <form>
-        <mat-form-field class="example-full-width">
-          <input [(ngModel)]="loginData.email" name="email" matInput placeholder="email" type="email" value="">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input [(ngModel)]="loginData.password" name="password" matInput placeholder="password" type="password" value="">
-        </mat-form-field>
-        <button (click)="submit()" mat-raised-button color="primary">Login</button>
-      </form>
+      <div *ngIf=!authService.isAuthenticated>
+        <form>
+          <mat-form-field class="example-full-width">
+            <input [(ngModel)]="loginData.email" name="email" matInput placeholder="email" type="email" value="">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input [(ngModel)]="loginData.password" name="password" matInput placeholder="password" type="password" value="">
+          </mat-form-field>
+          <button (click)="submit()" *ngIf=!authService.isAuthenticated mat-raised-button color="primary">Login</button>
+        </form>
+      </div>
+      <div *ngIf=authService.isAuthenticated>
+        <p>Logged in successfully</p>
+      </div>
     </mat-card-content>
   </mat-card>

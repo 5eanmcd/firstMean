@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { ApiService } from './api.service'
 
 import {MatButtonModule, 
-  MatCheckboxModule} from '@angular/material'
+  MatCheckboxModule,
+  MatIconModule} from '@angular/material'
 import {MatCardModule} from '@angular/material/card'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatInputModule} from '@angular/material/input'
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms'
 
 import { LoginComponent } from './login/login.component'
 import { AuthService } from './auth.service'
+import { AuthInterceptorService } from './authInterceptor.service'
 import { UsersComponent } from './users/users.component'
 import { ProfileComponent } from './profile/profile.component'
 import { RegisterComponent } from './register/register.component'
@@ -25,7 +27,7 @@ import { MessagesComponent } from './messages.component'
 import {MatListModule} from '@angular/material/list';
 import { PostComponent } from './post/post.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 const routes = [
   { path: '', component: PostComponent},
@@ -56,9 +58,16 @@ const routes = [
     MatToolbarModule,
     MatInputModule,
     MatListModule,
+    MatIconModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, 
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

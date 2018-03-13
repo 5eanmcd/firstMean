@@ -12,6 +12,7 @@ export class MessagesComponent {
   constructor( private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    console.log('MessagesComponent ngOnInit()')
     var userId = this.route.snapshot.params.id
     this.apiService.getMessages(userId);
   }
