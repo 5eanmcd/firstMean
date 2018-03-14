@@ -16,5 +16,8 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^5.0.9",
     "nodemon": "^1.17.1"
+  },
+  "engines": {
+    "node": "8.9.4"
   }
 }
