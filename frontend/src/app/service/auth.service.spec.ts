@@ -3,7 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http'
-import { environment } from '../environments/environment'
+import { environment } from '../../environments/environment'
 
 describe('AuthService', () => {
   beforeEach(() => {

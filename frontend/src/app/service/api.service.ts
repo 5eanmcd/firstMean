@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
 import { environment } from '../../environments/environment'
+import { Observable } from 'rxjs/Observable';
+import { User } from '../model/User';
 
 @Injectable()
 export class ApiService {
@@ -33,12 +35,17 @@ export class ApiService {
         })
     }
 
-    getUsers() {
+    // getUsers() {
+    //     console.log('getUsers');
+    //     this.http.get<any>(this.path + 'users').subscribe(res => {
+    //         console.log(res);
+    //         this.users = res
+    //     },error => console.error('Error occurred in getting users ', error))
+    // }
+
+    getUsersNew(): Observable<User[]> {
         console.log('getUsers');
-        this.http.get<any>(this.path + 'users').subscribe(res => {
-            console.log(res);
-            this.users = res
-        },error => console.error('Error occurred in getting users ', error))
+        return this.http.get<User[]>(this.path + 'users')
     }
 
     getProfile(id) {

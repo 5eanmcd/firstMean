@@ -5,11 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule, MatIconModule, MatListModule } from '@angular/material';
+
 import { AuthService } from '../service/auth.service';
 import { ApiService } from '../service/api.service';
+
 import { MessagesComponent } from '../messages.component';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -20,16 +23,12 @@ describe('ProfileComponent', () => {
       declarations: [ ProfileComponent,
       MessagesComponent ],
       imports: [
-        // BrowserModule,
+        BrowserModule,
         BrowserAnimationsModule,
-        // // HttpModule, //Angular2 replaced with HttpClientModule
         HttpClientModule,
         FormsModule,
         MatInputModule,
-        // MatButtonModule,
         MatCardModule,
-        // MatToolbarModule,
-        // MatInputModule,
         MatListModule,
         MatIconModule,
         RouterModule.forRoot([])
