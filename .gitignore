@@ -3,6 +3,8 @@ backend/node_modules/
 # dependencies
 frontend/node_modules/
 
+frontend/dist/
+
 
 frontend/node_modules/.bin/
 frontend/node_modules/.bin/*
