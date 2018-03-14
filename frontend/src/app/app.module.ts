@@ -4,7 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core'
 
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service'
+//services
+import { ApiService } from './service/api.service'
+import { AuthService } from './service/auth.service'
 
 import {MatButtonModule, 
   MatCheckboxModule,
@@ -17,7 +19,6 @@ import { RouterModule} from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
 import { LoginComponent } from './login/login.component'
-import { AuthService } from './auth.service'
 import { AuthInterceptorService } from './authInterceptor.service'
 import { UsersComponent } from './users/users.component'
 import { ProfileComponent } from './profile/profile.component'
@@ -28,6 +29,7 @@ import {MatListModule} from '@angular/material/list';
 import { PostComponent } from './post/post.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { APP_BASE_HREF } from '@angular/common';
 
 const routes = [
   { path: '', component: PostComponent},
@@ -66,6 +68,9 @@ const routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
+    },
+    {
+      provide: APP_BASE_HREF, useValue: '/'
     }
   ],
   bootstrap: [AppComponent]
